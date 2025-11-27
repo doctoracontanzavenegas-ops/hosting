@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Constanza Venegas | Medicina Estética</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- PALETA DE COLORES --- */
+        :root {
+            --fondo: #fffbfb; 
+            --rosa-suave: #fcecef;
+            --rosa-medio: #e8d0d5;
+            --rosa-fuerte: #d4a5b0;
+            --dorado: #bfa67a; 
+            --texto-gris: #666666;
+            --texto-negro: #222222;
+            --sombra-card: 0 15px 35px rgba(212, 165, 176, 0.15);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--fondo);
+            color: var(--texto-gris);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--texto-negro); margin: 0; }
+
+        /* --- MENÚ --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center; padding: 20px 5%;
+            background-color: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 100;
+        }
+        .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: 1.5px; color: var(--texto-negro); text-transform: uppercase; }
+        .logo span { color: var(--rosa-fuerte); }
+        .nav-links a { text-decoration: none; color: var(--texto-negro); margin-left: 30px; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--rosa-fuerte); }
+        .btn-instagram { color: var(--rosa-fuerte) !important; }
+
+        /* --- PORTADA (HERO) --- */
+        header {
+            min-height: 90vh; display: flex; align-items: center; justify-content: space-between;
+            padding: 80px 5% 100px 5%; background: linear-gradient(to right, #fffbfb 40%, #fff5f7 100%); gap: 60px;
+        }
+
+        .hero-text { flex: 1; max-width: 600px; }
+        header h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 10px; }
+        header h2 {
+            font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; color: var(--rosa-fuerte);
+            text-transform: uppercase; letter-spacing: 3px; margin-bottom: 40px; display: inline-block;
+            border-bottom: 2px solid var(--rosa-medio); padding-bottom: 5px;
+        }
+
+        .manifiesto-box { background: rgba(255,255,255,0.7); border-left: 4px solid var(--rosa-fuerte); padding: 30px; margin-bottom: 40px; }
+        .manifiesto-title { font-size: 1.3rem; color: var(--texto-negro); margin-bottom: 20px; font-weight: 700; line-height: 1.3; }
+        .manifiesto-box p { font-size: 0.95rem; margin-bottom: 15px; text-align: justify; }
+        
+        .btn-principal { background-color: var(--texto-negro); color: white; padding: 18px 45px; text-decoration: none; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; transition: 0.4s; display: inline-block; }
+        .btn-principal:hover { background-color: var(--rosa-fuerte); transform: translateY(-5px); }
+
+        /* --- CARRUSEL --- */
+        .hero-slider-container {
+            flex: none;
+            width: 550px; 
+            height: 600px;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            background-color: #f0f0f0;
+        }
+
+        .slide {
+            display: none;
+            position: absolute; width: 100%; height: 100%;
+        }
+
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
+        .fade { animation-name: fade; animation-duration: 2s; }
+        @keyframes fade { from {opacity: 0.4} to {opacity: 1} }
+
+        .slider-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; }
+        .dot { height: 12px; width: 12px; margin: 0 2px; background-color: rgba(255,255,255,0.5); border-radius: 50%; display: inline-block; transition: 0.3s; cursor: pointer;}
+        .dot.active { background-color: var(--rosa-fuerte); transform: scale(1.2); }
+
+        .slide-caption {
+            position: absolute; bottom: 50px; left: 20px; background: rgba(255,255,255,0.9);
+            padding: 10px 25px; font-family: 'Montserrat'; font-size: 0.9rem; color: var(--texto-negro);
+            border-left: 3px solid var(--rosa-fuerte); font-weight: 600;
+        }
+
+        /* --- SECCIÓN: SOBRE MÍ --- */
+        .sobre-mi-seccion { background-color: white; padding: 100px 5%; }
+        .sobre-mi-container { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 60px; }
+        .sobre-mi-img-box { flex: 1; position: relative; }
+        .foto-perfil-pro { width: 100%; height: 500px; object-fit: cover; border-radius: 5px; box-shadow: 20px 20px 0px var(--rosa-suave); }
+        .sobre-mi-texto { flex: 1.2; }
+        .sobre-mi-texto h3 { font-size: 2.5rem; margin-bottom: 20px; color: var(--rosa-fuerte); }
+        .sobre-mi-texto h4 { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; color: var(--texto-negro); margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; }
+        .sobre-mi-texto p { margin-bottom: 20px; font-size: 1rem; color: #555; text-align: justify; }
+
+        /* --- SERVICIOS --- */
+        .seccion-servicios { max-width: 1200px; margin: 100px auto; padding: 0 5%; }
+        .titulo-seccion { text-align: center; font-size: 2.5rem; margin-bottom: 10px; }
+        .subtitulo-seccion { text-align: center; display: block; margin-bottom: 60px; font-size: 1rem; color: var(--rosa-fuerte); letter-spacing: 1px; }
+        .grid-servicios { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .card { background: white; padding: 50px 40px; text-align: left; transition: 0.4s; cursor: pointer; position: relative; border: 1px solid #f5f5f5; }
+        .card:hover { transform: translateY(-15px); box-shadow: var(--sombra-card); border-color: transparent; }
+        .icono-servicio { font-size: 3rem; color: var(--rosa-fuerte); margin-bottom: 25px; opacity: 0.8; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .ver-mas-btn { margin-top: 30px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--texto-negro); display: flex; align-items: center; transition: 0.3s; }
+        .ver-mas-btn i { margin-left: 10px; transition: 0.3s; color: var(--rosa-fuerte);}
+
+        /* --- MODALES & FOOTER --- */
+        .modal-fondo { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.92); backdrop-filter: blur(10px); align-items: center; justify-content: center; animation: aparecer 0.4s ease; padding: 20px; }
+        .modal-caja { background: white; width: 100%; max-width: 600px; padding: 60px 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); position: relative; text-align: center; border-top: 5px solid var(--rosa-fuerte); }
+        .btn-cerrar { position: absolute; top: 20px; right: 25px; font-size: 30px; cursor: pointer; color: #ccc; }
+        .btn-whatsapp { background: linear-gradient(45deg, #25D366, #128C7E); color: white; padding: 18px 35px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; margin-top: 30px; }
+        footer { background-color: #1a1a1a; color: white; text-align: center; padding: 80px 20px; margin-top: 100px; }
+        .social-icons a { color: white; text-decoration: none; margin: 0 15px; font-size: 1.5rem; }
+        @keyframes aparecer { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1150px) {
+            header { flex-direction: column; text-align: center; padding-top: 120px; gap: 40px; align-items: center;}
+            .nav-links { display: none; } .logo { margin: 0 auto; }
+            .hero-text { margin: 0 auto; max-width: 100%; } header h1 { font-size: 2.8rem; }
+            .manifiesto-box { text-align: left; padding: 25px; }
+            .hero-slider-container { width: 100%; max-width: 500px; height: 400px; margin-top: 20px;}
+            .sobre-mi-container { flex-direction: column; gap: 40px; }
+            .sobre-mi-texto { text-align: center; } .sobre-mi-texto p { text-align: left; }
+            .foto-perfil-pro { height: 400px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">DRA. CONSTANZA <span>VENEGAS</span></div>
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre-mi">Dra. Constanza</a>
+            <a href="#servicios">Tratamientos</a>
+            <a href="https://www.instagram.com/dra.conivenegas/" target="_blank" class="btn-instagram"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+    </nav>
+
+    <header id="inicio">
+        <div class="hero-text">
+            <h2>Medicina Estética & Armonización</h2>
+            <h1>Dra. Constanza Venegas</h1>
+            <div class="manifiesto-box">
+                <h3 class="manifiesto-title">Más que estética, es salud y confianza.</h3>
+                <p>En nuestra consulta, entendemos que confiar tu imagen es una decisión importante. Por eso, nuestro pilar fundamental no es solo la búsqueda de la belleza, sino el respeto absoluto por tu integridad bajo estrictos <strong>protocolos de bioseguridad</strong>.</p>
+                <p>Somos intransigentes con la calidad: trabajamos exclusivamente con <strong>productos de gama alta</strong>, certificados internacionalmente.</p>
+            </div>
+            <a href="#servicios" class="btn-principal">Agenda tu Evaluación</a>
+        </div>
+
+        <div class="hero-slider-container">
+            <div class="slide fade">
+                <img src="clinica.png" alt="Clínica Estética">
+                <div class="slide-caption">Instalaciones clínicas de vanguardia</div>
+            </div>
+            <div class="slide fade">
+                <img src="productos.png" alt="Productos Alta Gama">
+                <div class="slide-caption">Productos certificados de alta gama</div>
+            </div>
+             <div class="slide fade">
+                 <img src="procedimiento.png" alt="Procedimiento Seguro">
+                 <div class="slide-caption">Protocolos de bioseguridad estrictos</div>
+            </div>
+            <div class="slider-dots">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </header>
+
+    <section id="sobre-mi" class="sobre-mi-seccion">
+        <div class="sobre-mi-container">
+            <div class="sobre-mi-img-box">
+                <img src="dra-perfil.png" alt="Dra. Constanza Venegas Perfil" class="foto-perfil-pro">
+            </div>
+            <div class="sobre-mi-texto">
+                <h3>Dra. Constanza Venegas</h3>
+                <h4>Una visión moderna de la odontología</h4>
+                <p>La Dra. Constanza Venegas es <strong>Cirujano Dentista egresada de la Universidad Andrés Bello</strong>, sede Viña del Mar. Como profesional joven, combina una sólida formación académica con una visión fresca y actualizada de la salud y la estética.</p>
+                <p>Su filosofía de trabajo va más allá del tratamiento clínico; su objetivo es transformar la visita al dentista en una experiencia agradable, segura y de confianza.</p>
+                <p>Apasionada por su vocación, dedica su práctica a mejorar la calidad de vida de sus pacientes, utilizando técnicas modernas y brindando un trato humano que prioriza siempre el bienestar integral.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Firma_ficticia.svg/1200px-Firma_ficticia.svg.png" style="width: 150px; opacity: 0.6; margin-top: 20px;" alt="Firma">
+            </div>
+        </div>
+    </section>
+
+    <div class="seccion-servicios" id="servicios">
+        <h2 class="titulo-seccion">Tratamientos Exclusivos</h2>
+        <span class="subtitulo-seccion">TECNOLOGÍA AVANZADA PARA RESULTADOS NATURALES</span>
+        <div class="grid-servicios">
+            
+            <div class="card" onclick="abrirModal('modal-1')">
+                <div class="icono-servicio"><i class="fas fa-wand-magic-sparkles"></i></div>
+                <h3>Pink Glow + Dermapen</h3>
+                <p>La combinación perfecta: microagujas + coctel de vitaminas para una piel radiante.</p>
+                <div class="ver-mas-btn">Ver detalles <i class="fas fa-arrow-right"></i></div>
+            </div>
+
+            <div class="card" onclick="abrirModal('modal-2')">
+                <div class="icono-servicio"><i class="fas fa-syringe"></i></div>
+                <h3>Pink Glow Inyectable</h3>
+                <p>Mesoterapia directa para revitalización profunda e hidratación intensa.</p>
+                <div class="ver-mas-btn">Ver detalles <i class="fas fa-arrow-right"></i></div>
+            </div>
+
+            <div class="card" onclick="abrirModal('modal-3')">
+                <div class="icono-servicio"><i class="fas fa-tooth"></i></div>
+                <h3>Limpieza Dental</h3>
+                <p>Profilaxis clínica completa para una sonrisa saludable y brillante.</p>
+                <div class="ver-mas-btn">Ver detalles <i class="fas fa-arrow-right"></i></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="modal-1" class="modal-fondo">
+        <div class="modal-caja">
+            <span class="btn-cerrar" onclick="cerrarModal('modal-1')">&times;</span>
+            <h2>Pink Glow + Dermapen</h2>
+            <p style="margin-top:20px;">Protocolo combinado que utiliza el Dermapen para crear microcanales, permitiendo que el Pink Glow penetre profundamente en la dermis. Ideal para mejorar textura, reducir poros y dar una luminosidad extrema.</p>
+            <a href="https://wa.me/56929183211?text=Hola,%20me%20interesa%20la%20sesion%20de%20Pink%20Glow%20con%20Dermapen" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar Evaluación</a>
+        </div>
+    </div>
+
+    <div id="modal-2" class="modal-fondo">
+        <div class="modal-caja">
+            <span class="btn-cerrar" onclick="cerrarModal('modal-2')">&times;</span>
+            <h2>Pink Glow Inyectable</h2>
+            <p style="margin-top:20px;">Aplicación de Pink Glow mediante técnica de mesoterapia (pápulas). Concentra las vitaminas, péptidos y ácido hialurónico en capas profundas para una bioestimulación intensa y duradera.</p>
+            <a href="https://wa.me/56929183211?text=Hola,%20me%20interesa%20el%20Pink%20Glow%20Inyectable" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar Evaluación</a>
+        </div>
+    </div>
+
+    <div id="modal-3" class="modal-fondo">
+        <div class="modal-caja">
+            <span class="btn-cerrar" onclick="cerrarModal('modal-3')">&times;</span>
+            <h2>Limpieza Dental Clínica</h2>
+            <p style="margin-top:20px;">Higiene profunda con ultrasonido para eliminar sarro y manchas superficiales. Es el complemento fundamental de salud para cualquier tratamiento estético facial.</p>
+            <a href="https://wa.me/56929183211?text=Hola,%20quisiera%20agendar%20una%20Limpieza%20Dental" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar Hora</a>
+        </div>
+    </div>
+    
+    <footer>
+        <h3>DRA. CONSTANZA VENEGAS</h3><p style="color:#999;margin-bottom:30px;">Medicina Estética & Armonización Facial</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/dra.conivenegas/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/56929183211" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p style="margin-top:40px;font-size:0.8rem;color:#555;">Atención exclusiva en Santiago y Concón, Chile.<br>© 2025</p>
+    </footer>
+
+    <script> 
+        let slideIndex = 0;
+        showSlides();
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; slides[i].classList.remove("active"); }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
+            slides[slideIndex-1].style.display = "block";  
+            slides[slideIndex-1].classList.add("active");
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 4000); 
+        }
+        function abrirModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function cerrarModal(id) { document.getElementById(id).style.display = 'none'; }
+        window.onclick = function(event) { if (event.target.classList.contains('modal-fondo')) { event.target.style.display = 'none'; }}
+    </script>
+</body>
+</html>
